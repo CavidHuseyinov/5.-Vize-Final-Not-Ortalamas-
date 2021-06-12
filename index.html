@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vize Final Sınavı</title>
+</head>
+
+<body>
+    <label for="textVize">Vize :
+        <input type="text" name="txtVize" id="txtVize">
+    </label>
+    <br><br>
+    <label for="txtFinal">Final :
+        <input type="text" name="txtFinal" id="txtFinal">
+    </label>
+    <br><br>
+    <input type="button" name="button" id="hesapla" value="Hesapla">
+    <div id="sonuc"></div>
+    <script>
+        var txtVize = document.getElementById("txtVize");
+        var txtFinal = document.getElementById("txtFinal");
+        var btnHesapla = document.getElementById("hesapla");
+        var sonucDiv = document.getElementById("sonuc");
+
+        btnHesapla.onclick = function () {
+            var vize = Number(txtVize.value);
+            var final = Number(txtFinal.value);
+            var ortalama = vize * 40 / 100 + final * 60 / 100;
+            var durum = "";
+            if (ortalama >= 50 && final >= 50) {
+                durum = "Geçtiniz.";
+            } else if (ortalama >= 50 && final < 50) {
+                durum = "Final notu 50 puan altında, kaldınız.";
+            } else {
+                durum = "Final ve ortalama notunuz 50'nın altında kaldınız."
+            }
+
+            sonucDiv.innerHTML = "Notunuz: " + ortalama + "<br>" + durum;
+        }
+    </script>
+</body>
+
+</html>
